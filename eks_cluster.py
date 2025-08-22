@@ -81,6 +81,27 @@ node_group = aws.eks.NodeGroup('eksNodeGroup',
     ami_type="BOTTLEROCKET_ARM_64"
 )
 
+
+# Default managed EKS addons
+aws.eks.Addon('coredns',
+    cluster_name=cluster.name,
+    addon_name='coredns',
+    addon_version='', # empty string means latest
+    #resolve_conflicts='OVERWRITE'
+)
+aws.eks.Addon('vpc-cni',
+    cluster_name=cluster.name,
+    addon_name='vpc-cni',
+    addon_version='',
+    #resolve_conflicts='OVERWRITE'
+)
+aws.eks.Addon('kube-proxy',
+    cluster_name=cluster.name,
+    addon_name='kube-proxy',
+    addon_version='',
+    #resolve_conflicts='OVERWRITE'
+)
+
 #pulumi.export('kubeconfig', cluster.kubeconfig)
 pulumi.export('cluster_name', cluster.name)
 pulumi.export('node_group_name', node_group.node_group_name)
