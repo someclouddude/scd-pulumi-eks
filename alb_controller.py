@@ -1,3 +1,8 @@
+
+import pulumi
+import pulumi_aws as aws
+import pulumi_kubernetes as k8s
+
 # Tag subnets for EKS and ALB controller usage
 def tag_subnets_for_eks_and_alb(vpc_id, public_subnet_ids, private_subnet_ids):
     # Tag public subnets for Kubernetes LoadBalancer
@@ -24,9 +29,6 @@ def tag_subnets_for_eks_and_alb(vpc_id, public_subnet_ids, private_subnet_ids):
             value="shared",
             resource_id=subnet_id
         )
-import pulumi
-import pulumi_aws as aws
-import pulumi_kubernetes as k8s
 
 config = pulumi.Config()
 cluster_name = config.require('cluster_name')
