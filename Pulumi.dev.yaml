@@ -1,0 +1,14 @@
+
+encryptionsalt: v1:Ajo1o5l3xKc=:v1:w1s5L0mmbSeIPibE:3pi7SWfBCfydB2iA5JeOsUh2Nc75LQ==
+config:
+  aws:region: us-east-1
+  scd-pulumi-eks:vpc_id: vpc-050cdd0cab0d8adf6
+  scd-pulumi-eks:public_subnet_ids:
+    - subnet-043fbfc9166fcb1ee
+    - subnet-0c28718808389493f
+    - subnet-04ef512d4a9024abf
+  scd-pulumi-eks:private_subnet_ids:
+    - subnet-0764290ea21f5f710
+    - subnet-01d7962c4dfe05b86
+    - subnet-062b7956489ba3a50
+  scd-pulumi-eks:cluster_name: scd-dev-eks
